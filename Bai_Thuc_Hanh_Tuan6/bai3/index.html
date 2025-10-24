@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KainShop - Cửa hàng thời trang</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./assets/logo.png" alt="logo KainShop" class="logo" />
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="#">Trang chủ</a></li>
+          <li><a href="#">Sản phẩm</a></li>
+          <li><a href="#">Liên hệ</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <div class="cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-count">0</span>
+        </div>
+        <button class="login-btn">Login</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h2 class="intro_title">Chào mừng đến với KainShop</h2>
+        <p class="intro_desc">
+          KainShop nơi mang đến cho bạn những sản phẩm thời trang hiện đại,
+          phong cách và chất lượng cao. Mua sắm dễ dàng, nhanh chóng và tiện
+          lợi!
+        </p>
+
+        <div class="intro-gallery">
+          <div class="intro-wrapper">
+            <!-- Ảnh 1 -->
+            <div class="intro-item active">
+              <img src="./assets/intro1.jpg" alt="Sản phẩm thời trang 1" />
+            </div>
+
+            <!-- Ảnh 2 -->
+            <div class="intro-item">
+              <img src="./assets/intro2.jpg" alt="Sản phẩm thời trang 2" />
+            </div>
+
+            <!-- Ảnh 3 -->
+            <div class="intro-item">
+              <img src="./assets/intro3.jpg" alt="Sản phẩm thời trang 3" />
+            </div>
+
+            <!-- Ảnh 4 -->
+            <div class="intro-item">
+              <img src="./assets/intro4.jpg" alt="Sản phẩm thời trang 4" />
+            </div>
+
+            <!-- Nút điều hướng -->
+            <button class="nav-btn prev">&#10094;</button>
+            <button class="nav-btn next">&#10095;</button>
+          </div>
+
+          <!-- Chấm chuyển slide -->
+          <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- phần sản phẩm -->
+      <section class="product-section">
+        <div class="section-header">
+          <h2 class="transation">
+            <span class="dott"></span>
+            Đồ bếp nhập khẩu cao cấp
+          </h2>
+          <div class="actions">
+            <div class="search-box">
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Tìm kiếm sản phẩm..."
+              />
+              <button id="searchBtn" class="btn search-btn">Tìm</button>
+            </div>
+            <button id="addProductBtn" class="btn add-btn">
+              <span>➕</span> Thêm sản phẩm
+            </button>
+          </div>
+        </div>
+
+        <!-- Lớp phủ mờ nền -->
+        <div id="overlay" class="hidden overlay"></div>
+
+        <!-- Form thêm sản phẩm -->
+        <form id="addProductForm" class="hidden add-form">
+          <button type="button" id="closeFormBtnTop" class="close-btn">
+            ✖
+          </button>
+          <h3>➕ Thêm sản phẩm mới</h3>
+
+          <label>Ảnh sản phẩm:</label>
+          <input
+            type="text"
+            id="productImg"
+            placeholder="Đường dẫn ảnh (VD: ./assets/dia1.jpg)"
+            required
+          />
+
+          <label>Nhãn hàng:</label>
+          <input type="text" id="productName" placeholder="VD: ANNE" required />
+
+          <label>Tên sản phẩm:</label>
+          <input
+            type="text"
+            id="productDesc"
+            placeholder="VD: Bát có lỗ gốm sứ ANNE màu ngẫu nhiên"
+            required
+          />
+
+          <label>Tình trạng:</label>
+          <select id="productStatus" required>
+            <option value="Còn hàng">Còn hàng</option>
+            <option value="Hết hàng">Hết hàng</option>
+          </select>
+
+          <div class="price-row">
+            <div class="price-field">
+              <label>Giá mới (₫):</label>
+              <input
+                type="text"
+                id="productPriceNew"
+                placeholder="VD: 20,000₫"
+                required
+              />
+            </div>
+
+            <div class="price-field">
+              <label>Giá cũ (₫):</label>
+              <input
+                type="text"
+                id="productPriceOld"
+                placeholder="VD: 59,000₫"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn submit-btn">
+              💾 Lưu sản phẩm
+            </button>
+            <button type="button" id="closeFormBtn" class="btn cancel-btn">
+              Đóng
+            </button>
+          </div>
+        </form>
+
+        <div class="product-container">
+          <div class="product-card">
+            <div class="badge sale">-66%</div>
+            <div class="badge soldout">Hết hàng</div>
+            <img src="./assets/dia1.jpg" alt="Bát có lỗ gốm sứ ANNE" />
+            <div class="product-info">
+              <h4>ANNE</h4>
+              <p>Bát có lỗ gốm sứ ANNE màu ngẫu nhiên H7.8xD21.3</p>
+              <div class="price">
+                <span class="new">20,000₫</span>
+                <span class="old">59,000₫</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="badge sale">-22%</div>
+            <div class="badge soldout">Hết hàng</div>
+            <img src="./assets/dia2.jpg" alt="Bát đĩa WIN" />
+            <div class="product-info">
+              <h4>WIN</h4>
+              <p>Bát đĩa màu trắng WIN</p>
+              <div class="price">
+                <span class="new">10,000₫</span>
+                <span class="old">12,900₫</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="badge sale">-61%</div>
+            <div class="badge soldout">Hết hàng</div>
+            <img src="./assets/dia1.jpg" alt="Bộ ấm trà" />
+            <div class="product-info">
+              <h4>BLACK WHITE</h4>
+              <p>Bộ ấm trà bằng sứ BLACK & WHITE hoa văn đen trắng</p>
+              <div class="price">
+                <span class="new">500,000₫</span>
+                <span class="old">1,290,000₫</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="badge sale">-60%</div>
+            <div class="badge soldout">Hết hàng</div>
+            <img src="./assets/dia2.jpg" alt="Đệm ngồi NELLY" />
+            <div class="product-info">
+              <h4>NELLY</h4>
+              <p>Đệm ngồi ghế thư giãn 100% Cotton NELLY</p>
+              <div class="price">
+                <span class="new">99,600₫</span>
+                <span class="old">249,000₫</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="badge sale">-70%</div>
+            <div class="badge soldout">Hết hàng</div>
+            <img src="./assets/dia1.jpg" alt="Đệm Cotton ROSABELLA" />
+            <div class="product-info">
+              <h4>ROSABELLA</h4>
+              <p>Đệm ngồi ghế thư giãn vải Cotton ROSABELLA</p>
+              <div class="price">
+                <span class="new">59,700₫</span>
+                <span class="old">199,000₫</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-form">
+        <h2>Liên hệ với chúng tôi</h2>
+        <form>
+          <label for="name">Tên của bạn:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Nội dung:</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+
+          <button type="submit">Gửi</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 KainShop. Mọi quyền được bảo lưu.</p>
+      <p>Địa chỉ: 123 Phố Thời Trang, Hà Nội</p>
+    </footer>
+  </body>
+
+  <script src="script.js"></script>
+</html>
