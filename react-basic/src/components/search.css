@@ -1,0 +1,35 @@
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.search-input {
+  width: 300px;
+  padding: 10px 14px;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 8px;
+  font-size: 15px;
+  outline: none;
+  transition: all 0.2s ease-in-out;
+  background-color: #fafafa;
+}
+
+/* Hiệu ứng khi rê chuột */
+.search-input:hover {
+  border-color: #9cc5ff;
+  background-color: #fff;
+}
+
+/* Khi focus vào input */
+.search-input:focus {
+  border-color: #4b91ff;
+  box-shadow: 0 0 5px rgba(75, 145, 255, 0.4);
+  background-color: #fff;
+}
+
+/* Placeholder nhẹ nhàng */
+.search-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
