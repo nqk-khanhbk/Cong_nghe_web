@@ -1,0 +1,2 @@
+db.students.find()
+use student_db
